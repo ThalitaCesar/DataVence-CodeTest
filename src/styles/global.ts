@@ -37,11 +37,36 @@ input{
     border: 1px solid var(--gray);
     border-radius: 35px;
     margin:16px;
-
+    @media (max-width: 720px) {
+        width:349px;
+      }
 };
 textarea:focus, input:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
+}
+select {
+    padding: 17px 22px;
+    background: none;
+    width: 449px;
+    height: 60px;
+    border: 1px solid var(--gray);
+    border-radius: 35px;
+    margin: 16px;
+    color: var(--text-body)
+}
+
+select:focus {
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    background: var(--background);
+    border-radius: 35px;
+}
+
+@media (max-width: 720px) {
+    select {
+        width: 349px;
+    }
 }
  }
  h1,h2,h3,h4,h5,h6,strong{
