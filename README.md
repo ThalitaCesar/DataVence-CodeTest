@@ -13,7 +13,6 @@ Para executar o projeto, você precisa ter instalado o seguinte:
 
 ```
 git clone https://github.com/ThalitaCesar/DataVence-CodeTest
-
 ```
 
 ## Instalando as dependências
@@ -21,7 +20,6 @@ Após clonar o repositório, navegue até o diretório raiz do projeto e execute
 
 ```
 npm install ou yarn 
-
 ```
 
 ## Executando o projeto
@@ -29,7 +27,6 @@ Após instalar as dependências, execute o seguinte comando para iniciar o servi
 
 ```
 yarn start
-
 ```
 
 Isso iniciará o projeto e poderá ser acessado no navegador através da URL http://localhost:3000.
