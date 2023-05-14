@@ -74,7 +74,7 @@ const LandingPage = () => {
                     </InputCep>
                     <Box sx={{width: '90%', marginTop:"20px"}}>
                             <Collapse in={openError}>
-                                <Alert variant="outlined" severity="error">
+                                <Alert variant="filled" severity="error">
                                 Insira um cep válido
                                 </Alert>
                             </Collapse>

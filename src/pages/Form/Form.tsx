@@ -579,14 +579,14 @@ const Form : React.FC = () => {
 
                         <Box sx={{width: '100%'}}>
                             <Collapse in={open}>
-                                <Alert variant="outlined" severity="success">
+                                <Alert variant="filled" severity="success">
                                     `Seu cadastro foi realizado com sucesso! Entraremos em contato em instantes com o email cadastrado {data.email} com a senha provisória informações para dar prosseguimento a compra.`
                                 </Alert>
                             </Collapse>
                         </Box>
                         <Box sx={{width: '100%'}}>
                             <Collapse in={openError}>
-                                <Alert variant="outlined" severity="error">
+                                <Alert variant="filled" severity="error">
                                 Não foi possível realizar o cadastro. Reveja as informações e tente novamente.
                                 </Alert>
                             </Collapse>
