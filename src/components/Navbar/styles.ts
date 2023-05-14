@@ -9,7 +9,7 @@ export const StyledAppBar = styled(AppBar)`
 `;
 
 export const StyledButton = styled(Button)`
-  width: 172px;
+  width: 132px;
   height: 47px;
   border: 2px solid var(--text-title);
   border-radius: 0px;

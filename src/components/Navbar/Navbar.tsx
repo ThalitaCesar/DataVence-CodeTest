@@ -37,7 +37,7 @@ const Navbar = () => {
             <Link>Benefícios</Link>
             <Link>Como Funciona</Link>
           </StyledNavLinks>
-          <StyledButton variant="outlined">Assinar</StyledButton>
+          <StyledButton variant="outlined">Login</StyledButton>
         </StyledToolbar>
       </StyledAppBar>
 

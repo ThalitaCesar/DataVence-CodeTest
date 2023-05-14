@@ -60,7 +60,13 @@ const LandingPage = () => {
                         porta.</p>
 
                     <InputCep>
-                        <Input type="text" value={userCep}  placeholder="Cep" onChange={handleChange} onKeyPress={handleKeyPress} />
+                        <Input 
+                        type="text" 
+                        value={userCep}  
+                        placeholder="Cep, apenas números..."
+                        pattern="[0-9]{8}" 
+                        onChange={handleChange} 
+                        onKeyPress={handleKeyPress} />
                         <button onClick={getCEP}>Assinar</button>
                     </InputCep>
                 </LandingInfos>

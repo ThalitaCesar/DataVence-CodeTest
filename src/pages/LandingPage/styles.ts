@@ -50,7 +50,7 @@ export const Input = styled.input`
   display: flex;
   justify-content: space-between;
   background: none;
-  width: 249px;
+  width: 349px;
   height: 60px;
   border: none;
   border-radius: 35px;
