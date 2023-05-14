@@ -3,9 +3,10 @@ import api from '../../services/api';
 import {GlobalContext} from '../../context/GlobalState';
 import {useNavigate} from 'react-router';
 import books from '../../assets/about-books.webp'
-import {Container} from '@material-ui/core'
+import {Box, Collapse, Container} from '@material-ui/core'
 import {HorizontalFlex, ImgLanding, Input, InputCep, LandingInfos} from './styles';
 import Navbar from '../../components/Navbar/Navbar';
+import { Alert } from '@mui/material';
 
 const LandingPage = () => {
 
@@ -13,6 +14,7 @@ const LandingPage = () => {
         setUserCep] = useState('');
     const {viaCep, setViaCep} = useContext(GlobalContext)
     const navigate = useNavigate();
+    const [openError, setOpenError] = useState(false);
 
     const handleChange = (event : React.ChangeEvent < HTMLInputElement >) => {
         const numberCep = event
@@ -24,7 +26,7 @@ const LandingPage = () => {
 
     async function getCEP() {
         if (userCep === '') {
-          alert('Digite um CEP válido');
+          setOpenError(true);
           setUserCep('');
           return;
         }
@@ -33,10 +35,11 @@ const LandingPage = () => {
           const response = await api.get(`/${numberCep}/json`);
           console.log(response.data);
           setViaCep(response.data);
+          setOpenError(false);
           navigate('/form');
         } catch (error) {
           console.log('ERROR: ' + error);
-          alert('Digite um CEP válido');
+          setOpenError(true);
           setUserCep('');
           return;
         }
@@ -69,6 +72,13 @@ const LandingPage = () => {
                         onKeyPress={handleKeyPress} />
                         <button onClick={getCEP}>Assinar</button>
                     </InputCep>
+                    <Box sx={{width: '90%', marginTop:"20px"}}>
+                            <Collapse in={openError}>
+                                <Alert variant="filled" severity="error">
+                                Insira um cep válido
+                                </Alert>
+                            </Collapse>
+                        </Box>
                 </LandingInfos>
                 <ImgLanding src={books}/>
             </HorizontalFlex>

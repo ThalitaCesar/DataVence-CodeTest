@@ -13,4 +13,7 @@ export const validationSchema = yup.object().shape({
     street: yup.string().required('A rua é obrigatória'),
     state: yup.string().required('O estado é obrigatório'),
     number: yup.string().required('O número é obrigatório'),
+    plan: yup.string().required('O plano é obrigatório'),
+    themes: yup.array().of(yup.string()).required('Os temas de leitura são obrigatórios'),
+    additionalInfo: yup.mixed().nullable(),
   });
