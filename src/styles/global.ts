@@ -2,12 +2,12 @@ import {createGlobalStyle} from "styled-components"
 
 export const GlobalStyle = createGlobalStyle `
 :root{
-    --background:#0F172A;
-    --blue: #2563EB;
-    --blue-gray:#1E293B;
-    --gray: #334155;
+    --background: #A52A2A;
+    --pink: #e74157;
+    --pink-gray: #822121;
+    --gray: #be9797;
     --text-title: #ffffff;
-    --text-body:#94A3B8;
+    --text-body:#e39191;
 }
  *{
     margin:0;
@@ -62,6 +62,10 @@ select:focus {
     background: var(--background);
     border-radius: 35px;
 }
+input::placeholder,
+  textarea::placeholder {
+    color: var(--text-body);
+  }
 
 @media (max-width: 720px) {
     select {
@@ -81,7 +85,7 @@ select:focus {
     justify-content: center;
     align-items: center;
     padding: 16px;
-    background: var(--blue);
+    background: var(--pink);
     border-radius: 50px;
     font-family: 'Poppins';
     font-style: normal;
@@ -91,12 +95,12 @@ select:focus {
     color: var(--text-title);
  }
  button:hover{
-    background: var(--blue-gray);
+    background: var(--pink-gray);
 }
  a{
     text-decotarion:none;
     cursor: pointer;
-    color: var(--blue)
+    color: var(--pink)
  }
 [disable]{
     visable:0.6;

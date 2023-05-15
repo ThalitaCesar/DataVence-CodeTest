@@ -15,7 +15,7 @@ export const StyledButton = styled(Button)`
   border-radius: 0px;
   color: var(--text-title);
   &:hover{
-    background: var(--blue)
+    background: var(--pink)
   },
   @media (max-width: 700px) {
     display: none;
@@ -42,7 +42,7 @@ margin-left:30px;
   }
 &:hover{
     cursor:pointer;
-    color: var(--blue);
+    color: var(--pink);
 }
 `
 

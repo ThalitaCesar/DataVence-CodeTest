@@ -1,10 +1,10 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import api from '../../services/api';
 import {GlobalContext} from '../../context/GlobalState';
 import {useNavigate} from 'react-router';
 import books from '../../assets/about-books.webp'
 import {Box, Collapse, Container} from '@material-ui/core'
-import {HorizontalFlex, ImgLanding, Input, InputCep, LandingInfos} from './styles';
+import {HorizontalFlex, ImgLanding, Input, InputCep, LandingInfos, LoadingSpinner} from './styles';
 import Navbar from '../../components/Navbar/Navbar';
 import { Alert } from '@mui/material';
 
@@ -15,7 +15,16 @@ const LandingPage = () => {
     const {viaCep, setViaCep} = useContext(GlobalContext)
     const navigate = useNavigate();
     const [openError, setOpenError] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
+
+    useEffect(() => {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000); 
+    }, []);
+
+    
     const handleChange = (event : React.ChangeEvent < HTMLInputElement >) => {
         const numberCep = event
             .target
@@ -54,6 +63,9 @@ const LandingPage = () => {
     return (
         <Container>
             <Navbar/>
+            {isLoading ? (
+            <LoadingSpinner />
+      ) : ( 
             <HorizontalFlex>
                 <LandingInfos>
                     <h1>Seu portal para uma jornada literária inesquecível</h1>
@@ -82,6 +94,7 @@ const LandingPage = () => {
                 </LandingInfos>
                 <ImgLanding src={books}/>
             </HorizontalFlex>
+            )}
         </Container>
     )
 }
