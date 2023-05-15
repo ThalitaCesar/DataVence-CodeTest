@@ -40,7 +40,7 @@ Isso iniciará o projeto e poderá ser acessado no navegador através da URL htt
 * Styled-components: biblioteca para estilização de componentes React utilizando CSS-in-JS.
 
 ## Api
-Para a api, esse projeto utiliza o (viaCep)[https://viacep.com.br/ws/01001000/json/] e os dados do formulário são enviados para a api (Webhook Inbox)[http://webhookinbox.com/view/4sQxDkRy/], que pode ser acessada ao clicar no link. Para enviar para a api webhook é preciso estar em https;
+Para a api, esse projeto utiliza o [viaCep](https://viacep.com.br/ws/01001000/json/) e os dados do formulário são enviados para a api [Webhook Inbox](http://webhookinbox.com/view/4sQxDkRy/), que pode ser acessada ao clicar no link. Para enviar para a api webhook é preciso estar em https;
 
 ## Estrutura do projeto
 
@@ -72,6 +72,13 @@ O projeto Leiturama consiste em uma landing page simples e um formulário respon
 ### Landing Page
 A landing page apresenta uma interface simples com texto, imagens e um botão para inserir o cep e acessar o formulário.
 
+![telainicial](https://github.com/ThalitaCesar/DataVence-CodeTest/assets/83131771/fd579d29-1f08-43ad-b85b-4e4f2e69e4fb)
+
+![mobile1](https://github.com/ThalitaCesar/DataVence-CodeTest/assets/83131771/e5ccee06-94f8-4330-9cf3-ef725b31c656)
+
+![mobilemenu](https://github.com/ThalitaCesar/DataVence-CodeTest/assets/83131771/b3146df7-da34-4d87-a778-16110ddfab61)
+
+
 ### Formulário
 O formulário é composto por campos como:
 
@@ -80,7 +87,15 @@ O formulário é composto por campos como:
 - Radio button
 - Checkbox
 - Input file
-- 
+
+![cadastro](https://github.com/ThalitaCesar/DataVence-CodeTest/assets/83131771/04974bee-8578-496f-a5e8-b573d3769dac)
+
+![cadastro2](https://github.com/ThalitaCesar/DataVence-CodeTest/assets/83131771/03da28cf-a0a0-4bfa-8232-18135264708e)
+
+![mobilecadastro1](https://github.com/ThalitaCesar/DataVence-CodeTest/assets/83131771/71385c43-fb8c-4912-bd7c-c42a8fed64de)
+
+![mobilecadastro2](https://github.com/ThalitaCesar/DataVence-CodeTest/assets/83131771/c66ac78a-ae91-4230-8f78-0582480b7cd1)
+
 
 ## Contribuição
 Se você quiser contribuir para o projeto Leiturama, fique à vontade para abrir um pull request. Será um prazer receber sua colaboração.
