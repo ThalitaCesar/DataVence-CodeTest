@@ -6,10 +6,13 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import {
     ButtonSubmit,
     CloseButton,
+    DescriptionForm,
+    ErrorCep,
     FileBox,
     FileInput,
     FormCep,
-    Label
+    Label,
+    TitleForm
 } from './styles';
 import {Controller, useForm, SubmitHandler} from 'react-hook-form';
 import axios from 'axios';
@@ -103,13 +106,19 @@ const Form : React.FC = () => {
             setValue('neighborhood', userCep.bairro);
             setValue('city', userCep.localidade);
             setValue('street', userCep.logradouro);
-            setValue('state', userCep.uf);
+            setValue('state', userCep.uf)
         }
     }, [userCep, setValue]);
 
+    useEffect(() => {
+        if (additionalInfoFile) {
+            setValue('additionalInfo', URL.createObjectURL(additionalInfoFile))
+        }
+    }, [additionalInfoFile, setValue]);
+
     const handleFormSubmit : SubmitHandler < FormValues > = async(data) => {
         try {
-            await axios.post('http://api.webhookinbox.com/i/c9652yJP/in/', data);
+            await axios.post('http://api.webhookinbox.com/i/4sQxDkRy/in/', data);
             setOpen(true);
             setOpenError(false);
         } catch (error) {
@@ -120,34 +129,20 @@ const Form : React.FC = () => {
         console.log(data);
     };
 
-    const useStyles = makeStyles({
-        root: {
-          '&$checkbox': {
-            '& input': {
-              borderColor: '#94A3B8'
-            },
-            '&$checked': {
-              color: '#2563EB'
-            }
-          }
-        },
-        checkbox: {},
-        checked: {}
-      });
-
-    const classes = useStyles();
-
     return (
         <Container>
             <Navbar/> {!viaCep
                 ? (
-                    <p>Cep não encontrado</p>
+                    <ErrorCep>Cep não encontrado!</ErrorCep>
                 )
                 : (
+                    <>
+                    <TitleForm>Cadastro</TitleForm>
+                    <DescriptionForm>Escolha seu plano e inscreva-se no site, ao ser cadastrado você receberá uma senha exclusiva para acesso ao site, pagamento e informações pessoais e dos livros enviados.</DescriptionForm>
                     <FormCep onSubmit={handleSubmit(handleFormSubmit)}>
 
                         <Label>Nome completo
-                            <span>(Obrigatório)</span>:
+                            <span> (Obrigatório)</span>:
                         </Label>
 
                         <Controller
@@ -177,7 +172,7 @@ const Form : React.FC = () => {
                         </FormHelperText>
 
                         <Label>CPF
-                            <span>(Obrigatório)</span>:</Label>
+                            <span> (Obrigatório)</span>:</Label>
                         <Controller
                             name="cpf"
                             control={control}
@@ -205,7 +200,7 @@ const Form : React.FC = () => {
                         </FormHelperText>
 
                         <Label>Email
-                            <span>(Obrigatório)</span>:</Label>
+                            <span> (Obrigatório)</span>:</Label>
 
                         <Controller
                             name="email"
@@ -233,7 +228,7 @@ const Form : React.FC = () => {
                         </FormHelperText>
 
                         <Label>CEP
-                            <span>(Obrigatório)</span>:</Label>
+                            <span> (Obrigatório)</span>:</Label>
 
                         <Controller
                             name="cep"
@@ -263,7 +258,7 @@ const Form : React.FC = () => {
                         </FormHelperText>
 
                         <Label>Bairro
-                            <span>(Obrigatório)</span>:</Label>
+                            <span> (Obrigatório)</span>:</Label>
 
                         <Controller
                             name="neighborhood"
@@ -293,7 +288,7 @@ const Form : React.FC = () => {
                         </FormHelperText>
 
                         <Label>Cidade
-                            <span>(Obrigatório)</span>:</Label>
+                            <span> (Obrigatório)</span>:</Label>
                         <Controller
                             name="city"
                             control={control}
@@ -323,7 +318,7 @@ const Form : React.FC = () => {
                         </FormHelperText>
 
                         <Label>Rua
-                            <span>(Obrigatório)</span>:</Label>
+                            <span> (Obrigatório)</span>:</Label>
                         <Controller
                             name="street"
                             control={control}
@@ -377,7 +372,7 @@ const Form : React.FC = () => {
                         </FormHelperText>
 
                         <Label>Estado
-                            <span>(Obrigatório):</span>
+                            <span> (Obrigatório):</span>
                         </Label>
                         <Controller
                             name="cep"
@@ -406,7 +401,7 @@ const Form : React.FC = () => {
                         </FormHelperText>
 
                         <Label>Número
-                            <span>(Obrigatório)</span>:</Label>
+                            <span> (Obrigatório)</span>:</Label>
                         <Controller
                             name="number"
                             control={control}
@@ -432,7 +427,7 @@ const Form : React.FC = () => {
                         </FormHelperText>
 
                         <Label>Plano
-                            <span>(Obrigatório)</span>:</Label>
+                            <span> (Obrigatório)</span>:</Label>
 
                         <Controller
                             name="plan"
@@ -466,7 +461,7 @@ const Form : React.FC = () => {
                                     ?.message}
                         </FormHelperText>
 
-                        <Label>Temas de Leitura Preferidos<span>(Obrigatório)</span>:</Label>
+                        <Label>Temas de Leitura Preferidos<span> (Obrigatório)</span>:</Label>
                         <Controller
                             name="themes"
                             control={control}
@@ -476,6 +471,7 @@ const Form : React.FC = () => {
                                 {themesArray.map((theme) => (
                                     <div key={theme}>
                                         <Checkbox
+                                            defaultChecked
                                             name="themes"
                                             value={theme}
                                             checked={data
@@ -498,7 +494,6 @@ const Form : React.FC = () => {
                                                 .onChange(updatedThemes);
                                         }}
                                             
-                                        classes={{ checked: classes.checked }}
                                         />
                                         <label htmlFor={theme}>{theme}</label>
                                     </div>
@@ -514,7 +509,7 @@ const Form : React.FC = () => {
                         </FormHelperText>
 
                         <Label>Informações Complementares
-                            <span>aceito arquivos PNG, JPG, JPEG, GIF e PDF</span>
+                            <span> aceito arquivos PNG, JPG, JPEG, GIF e PDF</span>
                             :
                         </Label>
                         {!additionalInfoFile
@@ -564,7 +559,7 @@ const Form : React.FC = () => {
                             }}>
                                 <u>Clique aqui
                                 </u > <span>
-                                para adicionar informações complementares
+                                 para adicionar informações complementares
                                 </span> 
                                 </label>
                         </FileInput > </>)
@@ -593,6 +588,7 @@ const Form : React.FC = () => {
                         </Box>
 
                     </FormCep>
+                    </>
                 )}
 
         </Container>

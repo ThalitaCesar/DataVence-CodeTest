@@ -56,3 +56,20 @@ export const CloseButton = styled.button`
   margin-left:10px;
   height: 40px;
 `;
+
+export const ErrorCep = styled.div`
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:60px;
+`;
+
+export const TitleForm = styled.h1`
+text-align:center;
+`;
+
+export const DescriptionForm = styled.p`
+text-align:justify;
+margin:20px;
+`;
+

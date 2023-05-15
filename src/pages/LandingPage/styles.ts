@@ -1,5 +1,11 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Box } from "@material-ui/core";
+
+const spin = keyframes`
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 export const HorizontalFlex = styled(Box)`
   display: flex;
@@ -59,4 +65,15 @@ export const Input = styled.input`
   @media (max-width: 720px) {
     width: 100%;
   }
+`;
+
+export const LoadingSpinner = styled.div`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid var(--text-body);
+  border-top-color: transparent;
+  animation: ${spin} 0.8s linear infinite;
+  margin: auto;
+  margin-top:120px;
 `;

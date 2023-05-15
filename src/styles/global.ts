@@ -2,12 +2,12 @@ import {createGlobalStyle} from "styled-components"
 
 export const GlobalStyle = createGlobalStyle `
 :root{
-    --background:#0F172A;
-    --blue: #2563EB;
-    --blue-gray:#1E293B;
-    --gray: #334155;
+    --background: #A52A2A;
+    --blue: #e74157;
+    --blue-gray: #822121;
+    --gray: #be9797;
     --text-title: #ffffff;
-    --text-body:#94A3B8;
+    --text-body:#e39191;
 }
  *{
     margin:0;
@@ -62,6 +62,10 @@ select:focus {
     background: var(--background);
     border-radius: 35px;
 }
+input::placeholder,
+  textarea::placeholder {
+    color: var(--text-body);
+  }
 
 @media (max-width: 720px) {
     select {
