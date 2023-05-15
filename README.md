@@ -1,5 +1,8 @@
 
-# Leiturama 
+
+<div align="center">
+  <h1> <img src="https://github.com/ThalitaCesar/DataVence-CodeTest/assets/83131771/32baa938-ea96-4219-b388-b25e039659d0" width="30" /> Leiturama</h1>
+</div>
 Este é o projeto chamado Leiturama faz parte do code test da dataVence para o cargo de desenvolvedor frontend. O objetivo do teste é desenvolver uma landing page responsiva que redirecione para um formulário, e um formulário responsivo que envie as informações via requisição POST no formato JSON.
 
 ## Requisitos
